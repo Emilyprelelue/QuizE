@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+</head>
+<body>
+    
+    <div class="quiz-container">
+        <h1>Quiz de Perguntas e Respostas sobre o IOS</h1>
+        <div id="pergunta"></div>
+        <div id="opcoes"></div>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        const perguntas = [
+        {
+            pergunta: "o que é o IOS?",
+            opcoes: ["uma escola", "um instituto", "uma faculdade", "uma marca"],
+            resposta: "um instituto"
+        },
+        {
+            pergunta: "Qual é a melhor turma dos IOS?",
+            opcoes: ["A", "B", "D", "C"],
+            resposta: "C"
+        },
+        {
+            pergunta: "O que o IOS faz?",
+            opcoes: ["roupas", "cursos gratuitos", "aulas de inglês", "oportunidade de trabalho"],
+            resposta:"cursos gratuitos"
+        },
+        {
+            pergunta: "Qual o nome dos professores de programação e extensão?",
+            opcoes: ["Gustavo e Larissa", "Fernando e Marcela", "João e Clarice", "Bernardo e Maristela"],
+            resposta:"João e Clarice"
+        },
+        {
+            pergunta: "Quando o IOS foi criado?",
+            opcoes: ["2019", "1998", "2007", "1995"],
+            resposta:"1998"
+        }
+    ];
+
+        const perguntaElemento = document.getElementById("pergunta");
+        const opcoesElemento = document.getElementById("opcoes");
+        const resultadoElemento = document.getElementById("resultado");
+
+        let indicePerguntaAtual = 0;
+
+        function carregarPergunta() {
+            const perguntaAtual = perguntas[indicePerguntaAtual];
+            perguntaElemento.textContent = perguntaAtual.pergunta;
+
+            opcoesElemento.innerHTML = "";
+            perguntaAtual.opcoes.forEach(opcao => {
+                const botao = document.createElement("button");
+                botao.textContent = opcao;
+                botao.addEventListener("click", () => verificarResposta(opcao));
+                opcoesElemento.appendChild(botao);
+            });
+        }
+
+        function verificarResposta(respostaSelecionada) {
+    const perguntaAtual = perguntas[indicePerguntaAtual]; // Fix the typo here
+    if (respostaSelecionada === perguntaAtual.resposta) {
+        resultadoElemento.textContent = "Resposta Correta!";
+        resultadoElemento.className = "Correto";
+    } else {
+        resultadoElemento.textContent = "Resposta incorreta. A resposta correta é: " + perguntaAtual.resposta;
+        resultadoElemento.className = "incorreto";
+    }
+
+    indicePerguntaAtual++;
+    if (indicePerguntaAtual < perguntas.length) {
+        setTimeout(carregarPergunta, 3000);
+    } else {
+        resultadoElemento.textContent = "Quiz Concluído!";
+        resultadoElemento.className = "";
+    }
+}
+
+        carregarPergunta();
+    </script>
+
+    <footer>
+        Desenvolvido por Emily G.|@2024
+    </footer>
+</body>
+</html>

@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: IOS;
+    src: url(/coolvetica\ \(1\)/);
+}
+
+@font-face {
+    font-family: oi;
+    src: url(/roboto\ \(1\)/);
+}
+
+body{
+    background-image: url(https://ios.org.br/wp-content/uploads/2024/02/BG.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+}
+
+h1{
+    padding-top: 20%;
+    color: white;
+    font-family: IOS;
+}
+
+.quiz-container{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#pergunta{
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: rgb(201, 174, 215);
+    font-family: oi;
+}
+
+#opcoes{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+button {
+    width: 150%;
+    height: 50px;
+    border: 3px solid #48006e;
+    border-radius: 45px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: white;
+    font-size: 1.2em;
+    font-weight: 550;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background: #b77beb;
+    color: white;
+    font-size: 1.5em;
+}
+
+.Correto{
+    background-color: rgb(192, 233, 131);
+    text-align: center;
+    width: 50%;
+    margin-left: 25%;
+}
+
+.incorreto{
+    background-color: #ed8282;
+    text-align: center;
+    width: 55%;
+    margin-left: 22%;
+    color: white;
+}
+
+footer{
+    position: absolute;
+    bottom: 0%;
+    transform: translate(-50%);
+    left: 50%;
+    color: white;
+}
